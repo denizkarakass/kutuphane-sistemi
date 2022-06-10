@@ -1,0 +1,82 @@
+<%- include('_header') %>
+
+	
+	<div class="all-title-box">
+		<div class="container text-center">
+			<h1><%= book.baslik %> <span class="m_1">Book Detail</span></h1>
+		</div>
+	</div>
+	
+    <div id="overviews" class="section wb">
+        <div class="container">
+            <div class="row"> 
+                <div class="col-lg-9 blog-post-single">
+                    <div class="blog-item">
+					
+						<div class="post-content">
+						
+							<div class="blog-title">
+								<h2><a href="#" title=""><%= book.baslik %></a></h2>
+								<br>
+<!--1) includes ile kullanıcının içinde array'in olup olmadığını kontrol ediyorum. Kullanıcının ödünç aldığı kitapları tekrar göstermesini istemiyorum.
+    2) user şartıda koydum çünkü kullanıcı giriş yapmadanda kitap detaylarına bakarken hata vermesini istemiyorum.-->
+							<% if(user && !(user.books.includes(book._id))){   %> 
+								<form method="POST" action="/books/al">
+									<input type="hidden" name="book_id" value="<%= book._id %>">
+									<input type="hidden" name="alDate" value="<%= book.alDate %>">
+									<button 
+									class="btn btn-lg btn-warning text-white"><span>Borrow Book</span></button>
+								  </form>
+								  <% } %>
+
+							</div> <br>
+							<div class="blog-desc">
+								<p><%= book.desciription %> </p>
+								<span><a href="#">ISBN: <%= book.isbn %></a> </span><br>
+								<span><a href="#">Publication Year: <%= book.yil %></a> </span><br>
+								<span><a href="#">Print Number: <%= book.baski %></a> </span><br>
+								<span><a href="#">Publisher: <%= book.yayinci %></a> </span><br>
+								<span><a href="#">Editör: <%= book.editör %></a> </span><br>
+								<span><a href="#">Page Number: <%= book.sayfa %></a> </span><br>
+								<span><a href="#">Language: <%= book.dili %></a> </span><br>
+								<span><a href="#">Author: <%= book.yazar %></a> </span>
+									</div>							
+						</div>
+					</div>
+					
+				
+					
+				
+					
+					
+                </div><!-- end col -->
+
+
+				<div class="col-lg-3 col-12 right-single">
+					<!--
+						<div class="widget-search">
+						<div class="site-search-area">
+							<form method="get" id="site-searchform" action="#">
+								<div>
+									<input class="input-text form-control" name="search-k" id="search-k" placeholder="Search keywords..." type="text">
+									<input id="searchsubmit" value="Search" type="submit">
+								</div>
+							</form>
+						</div>
+					</div>
+					-->
+					<div class="widget-categories">
+						<h3 class="widget-title">Book Categories</h3>
+						<ul>
+							<% for (let i=0; i< categories.length; i++){ %>
+								<li><a style="font-size:18px ;" href="/books?categories=<%= categories[i].name %>"><%= categories[i].name %></a></li>
+							<% } %>
+						</ul>
+					</div>
+				</div>
+            </div><!-- end row -->
+        </div><!-- end container -->
+    </div><!-- end section -->
+
+
+	<%- include('_footer') %>

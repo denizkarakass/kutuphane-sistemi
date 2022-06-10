@@ -1,0 +1,79 @@
+<%- include('_header') %>
+	
+	<div class="all-title-box">
+		<div class="container text-center">
+			<h1> Book List</h1>
+		</div>
+	</div>
+	
+    <div id="overviews" class="section wb">
+        <div class="container">
+            <div class="section-title row text-center">
+                <div class="col-md-8 offset-md-2">
+                    <p class="lead"> Book List </p>
+                </div>
+            </div><!-- end title -->
+
+            <hr class="invis"> 
+
+			<div class="col-lg-12 col-12 right-single">
+				
+					<div class="widget-search">
+					<div class="site-search-area">
+						<form method="GET" id="site-searchform" action="/books">
+							<div>
+								<input class="input-text form-control" name="search" id="search-k" placeholder="Search Book..." type="text">
+								<input id="searchsubmit" value="Search" type="submit">
+							</div>
+						</form>
+					</div>
+				</div>
+				
+				<div class="widget-categories">
+					<h3 class="widget-title">Choose Book Category</h3>
+					<ul>
+						<% for (let i=0; i< categories.length; i++){ %>
+						<li><a href="/books?categories=<%= categories[i].name %>"><%= categories[i].name %></a></li>
+						<% } %>
+					</ul>
+				</div>
+			</div>
+            <div class="row"> 
+
+				<% for (let i=0; i< books.length; i++){ %>
+                <div class="col-lg-6 col-md-6 col-12">
+                    <div class="course-item">
+						<div class="course-br">
+							<div class="course-title">
+								<h2><a href="/books/<%= books[i].slug %>" title=""><%= books[i].baslik %></a></h2>
+							</div>
+							<div class="course-desc">
+								<p><%= books[i].desciription.substring(0,100) + "..." %></p>
+							</div>
+							<div class="course-rating">
+								Author: <%= books[i].yazar %>						
+							</div> 	
+								</div>
+						<div class="course-meta-bot">
+							<ul>
+								<li>Publisher: <%= books[i].yayinci %></li>
+								<li>Editör: <%= books[i].editör %></li>
+								<li>Print Number: <%= books[i].baski %></li>
+								<li>Publication Year: <%= books[i].yil %></li>
+								<li>Page Number: <%= books[i].sayfa %></li>
+								<li>Language: <%= books[i].dili %></li>
+							</ul>
+						</div>
+					</div> <br>
+                </div>
+				<% } %>
+
+			
+        </div><!-- end container -->
+    </div><!-- end section -->
+	<br><br>
+	<br><br>
+
+
+
+  <%- include('_footer') %>

@@ -1,0 +1,281 @@
+<%- include('_header') %>
+
+	
+	<div class="all-title-box">
+		<div class="container text-center">
+			<h1><%= user.name %><span class="m_1">Book Management</span></h1>
+		</div>
+	</div>
+
+	<br><br><br>
+
+<center>
+	<button style="background-color:rgb(228, 103, 20);color:white;width:60%;" type="button" class="btn btn-primary" data-toggle="modal" data-target="#create">
+		Create Book & Share
+	</button>
+
+
+</center><br><br>
+<hr><br><br>
+<h2 style="margin-left:45% ;">My barrowed books</h2>
+<div id="overviews" class="section wb">
+
+	<div class="container">
+<div class="row"> 
+	<% for (let i=0; i< user.books.length; i++){ %> <!-- Kullanıcının aldığı kitaplarının uzunluğu bunu authcontrollerda populate etmiştim-->
+		<div class="col-lg-6 col-md-6 col-12">
+			<div class="course-item">
+				<div class="course-br">
+					<div class="course-title">
+						<h2><a href="/books/<%= user.books[i].slug %>" title=""><%= user.books[i].baslik %></a></h2>
+					</div>
+					<div class="course-desc">
+						<p><%= user.books[i].desciription %></p> <!--Kullanıcının aldığı kitapların açıklaması populate kullanrak bunların arasındaki ilişkiyi ve veriyi çektim-->
+					</div>
+					<div class="course-rating">
+						Yazar: <%= user.books[i].yazar %>						
+					</div> <br>
+					
+					<!--İade etme formu-->
+					<form method="POST" action="/books/et">
+						<input type="hidden" name="book_id" value="<%= user.books[i]._id %>">
+						<button class="btn btn-lg btn-danger text-white"><span> Return Book</span></button>
+					  </form>
+				</div>
+				<div class="course-meta-bot">
+					<ul>
+						<li>Yayıncı: <%= user.books[i].yayinci %></li>
+						<li>Editör: <%= user.books[i].editör %></li>
+						<li>Baskı: <%= user.books[i].baski %></li>
+						<li>Basım Yılı: <%= user.books[i].yil %></li>
+						<li>Sayfa Sayısı: <%= user.books[i].sayfa %></li>
+						<li>Dili: <%= user.books[i].dili %></li>
+					</ul>
+				</div>
+			</div> <br>
+		</div>
+		<% } %>
+</div>
+</div>
+</div>
+
+
+
+<hr><br><br>
+<h2 style="margin-left:30% ;">My shared books</h2>
+
+<div id="overviews" class="section wb">
+
+	<div class="container">
+<div class="row"> 
+	<% for (let i=0; i< books.length; i++){ %>
+		<div class="col-lg-6 col-md-6 col-12">
+			<div class="course-item">
+				<div class="course-br">
+					<div class="course-title">
+						<h2><a href="/books/<%= books[i].slug %>" title=""><%= books[i].baslik %></a></h2>
+					</div>
+					<div class="course-desc">
+						<p><%= books[i].desciription %></p>
+					</div>
+					<div class="course-rating">
+						Yazar: <%= books[i].yazar %>						
+					</div>
+					<button class="btn btn-lg btn-warning text-white" 
+					data-toggle="modal" data-target="#güncelleBook<%= books[i]._id %>"><span> Book Update</span></button>
+					<a href="/books/<%= books[i].slug %>?_method=DELETE" 
+						onclick="return confirm('Silmek istediğinizden emin misniz?')"
+						class="btn btn-lg btn-danger text-white"><span> Book Delete</span></a>
+					
+				</div>
+				<div class="course-meta-bot">
+					<ul>
+						<li>Yayıncı: <%= books[i].yayinci %></li>
+						<li>Editör: <%= books[i].editör %></li>
+						<li>Baskı: <%= books[i].baski %></li>
+						<li>Basım Yılı: <%= books[i].yil %></li>
+						<li>Sayfa Sayısı: <%= books[i].sayfa %></li>
+						<li>Dili: <%= books[i].dili %></li>
+					</ul>
+				</div>
+			</div> <br>
+		</div>
+		 <!--Kitap Güncelleme Modülü-->
+		 <div class="modal fade  bd-example-modal-lg" id="güncelleBook<%= books[i]._id %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" >
+			<div class="modal-dialog  modal-lg" role="document">
+			  <div class="modal-content">
+				<div class="modal-header">
+				  <h5 class="modal-title" id="exampleModalLabel">Book Update</h5>
+				  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				  </button>
+				</div>
+				<div class="modal-body">
+					<form method="POST" action="/books/<%= books[i].slug %>?_method=PUT" role="form" class="form-horizontal">
+						<div class="form-group">
+							<div class="col-sm-12">
+								<input name="baslik" value="<%= books[i].baslik %>" class="form-control" id="exampleInputPassword1" placeholder="Book Name" type="text">
+							</div>
+						</div>
+						<div class="form-group">
+							<div class="col-sm-12">
+								<input name="desciription" value="<%= books[i].desciription %>" class="form-control" id="exampleInputPassword1" placeholder="Book Description" type="text">
+							</div>
+						</div>
+						<div class="form-group">
+							<div class="col-sm-12">
+								<input name="yazar" value="<%= books[i].yazar %>" class="form-control" id="exampleInputPassword1" placeholder="Author" type="text">
+							</div>
+						</div>
+						<div class="form-group">
+							<div class="col-sm-12">
+								<input name="isbn" value="<%= books[i].isbn %>" class="form-control" id="exampleInputPassword1" placeholder="ISBN Number" type="number">
+							</div>
+						</div>
+						<div class="form-group">
+							<div class="col-sm-12">
+								<input name="yil" value="<%= books[i].yil %>" class="form-control" id="exampleInputPassword1" placeholder="Publication Year" type="number">
+							</div>
+						</div>
+						<div class="form-group">
+							<div class="col-sm-12">
+								<input name="baski" value="<%= books[i].baski %>" class="form-control" id="exampleInputPassword1" placeholder=" Print Number" type="number">
+							</div>
+						</div>
+						<div class="form-group">
+							<div class="col-sm-12">
+								<input name="yayinci" value="<%= books[i].yayinci %>" class="form-control" id="exampleInputPassword1" placeholder=" Publisher" type="text">
+							</div>
+						</div>
+						<div class="form-group">
+							<div class="col-sm-12">
+								<input name="editör" value="<%= books[i].editör %>" class="form-control" id="exampleInputPassword1" placeholder=" Editör" type="text">
+							</div>
+						</div>
+						<div class="form-group">
+							<div class="col-sm-12">
+								<input name="sayfa" value="<%= books[i].sayfa %>" class="form-control" id="exampleInputPassword1" placeholder=" Page Number" type="number">
+							</div>
+						</div>
+						<div class="form-group">
+							<div class="col-sm-12">
+								<input name="dili" value="<%= books[i].dili %>" class="form-control" id="exampleInputPassword1" placeholder="Language" type="text">
+							</div>
+						</div>
+					
+				
+						<div class="row">
+							<div class="col-sm-10">
+								<button type="submit" class="btn btn-light btn-radius btn-brd grd1">
+									Book Update						</button>
+							</div>
+						</div>
+					</form>
+				</div>
+				<div class="modal-footer">
+				  <button type="button" class="btn btn-secondary" data-dismiss="modal">Exit</button>
+				</div>
+			  </div>
+			</div>
+		  </div>
+		<% } %>
+</div>
+</div>
+</div>
+
+
+
+    <%- include('_footer') %>
+
+
+
+
+ <!--Kitap Oluşturma Modülü-->
+ <div class="modal fade  bd-example-modal-lg" id="create" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	<div class="modal-dialog  modal-lg" role="document">
+	  <div class="modal-content">
+		<div class="modal-header">
+		  <h5 class="modal-title" id="exampleModalLabel">Book Share</h5>
+		  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+			<span aria-hidden="true">&times;</span>
+		  </button>
+		</div>
+		<div class="modal-body">
+			<form method="POST" action="/books" role="form" class="form-horizontal">
+				<div class="form-group">
+					<div class="col-sm-12">
+						<input name="baslik" class="form-control" id="exampleInputPassword1" placeholder="Book Name" type="text">
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="col-sm-12">
+						<input name="desciription" class="form-control" id="exampleInputPassword1" placeholder="Book Description" type="text">
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="col-sm-12">
+						<input name="yazar" class="form-control" id="exampleInputPassword1" placeholder="Author" type="text">
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="col-sm-12">
+						<input name="isbn" class="form-control" id="exampleInputPassword1" placeholder="ISBN Number" type="number">
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="col-sm-12">
+						<input name="yil" class="form-control" id="exampleInputPassword1" placeholder="Publication Year" type="number">
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="col-sm-12">
+						<input name="baski" class="form-control" id="exampleInputPassword1" placeholder=" Print Number" type="number">
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="col-sm-12">
+						<input name="yayinci" class="form-control" id="exampleInputPassword1" placeholder=" Publisher" type="text">
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="col-sm-12">
+						<input name="editör" class="form-control" id="exampleInputPassword1" placeholder=" Editör" type="text">
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="col-sm-12">
+						<input name="sayfa" class="form-control" id="exampleInputPassword1" placeholder=" Page Number" type="number">
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="col-sm-12">
+						<input name="dili" class="form-control" id="exampleInputPassword1" placeholder="Language" type="text">
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="col-sm-12">
+                    <select name="category" class="form-control">
+						<option>Categories</option>
+						<% for (let i=0; i< categories.length; i++){ %>
+						<option value="<%= categories[i]._id %>"><%= categories[i].name %></option>
+						<% } %>
+					</select>
+					</div>
+				</div>
+		
+				<div class="row">
+					<div class="col-sm-10">
+						<button type="submit" class="btn btn-light btn-radius btn-brd grd1">
+							Book Share 						</button>
+					</div>
+				</div>
+			</form>
+		</div>
+		<div class="modal-footer">
+		  <button type="button" class="btn btn-secondary" data-dismiss="modal">Exit</button>
+		</div>
+	  </div>
+	</div>
+  </div>
+
+ 
