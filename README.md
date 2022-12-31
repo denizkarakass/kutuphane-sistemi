@@ -7,11 +7,11 @@
 <p> Kullanıcıların üye olup, ödünç kitap alabildiği, sisteminde ödünç alınan kitapların hangileri olduğunu ve kim tarafından alındığını veritabanına kayıt altına alan ödünç verdiği zamanda ilgili kayıtta güncelleme yapan bir web uygulamasıdır. </p>
   
 <h4> Nasıl Kullanırım ? </h4>
-  <p> İstediğiniz dizinde terminal (cmd) ekranını açın. Aşağıdaki satırı çalıştırın.</p>
 <code>git clone https://github.com/denizkarakass/kutuphane-sistemi.git </code>  
-
+ <p> İstediğiniz dizinde terminal (cmd) ekranını açın. Aşağıdaki satırı çalıştırın.</p>
 <br>
-<p> Terminal ekranından kaynak kütüphanelerini yükleyin. </p>
 <code> npm i express mongoose body-parser express-session connect-mongo method-override </code>
-<p> İsterseniz geliştirme aşaması için Nodemon'u da dahil edebilirsiniz. </p>
+<p> Terminal ekranından kaynak kütüphanelerini yükleyin. </p>
 <code> npm i nodemon </code>
+<p> İsterseniz geliştirme aşaması için Nodemon'u da dahil edebilirsiniz. </p>
+
