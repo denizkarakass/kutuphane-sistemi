@@ -10,8 +10,11 @@
 <code>git clone https://github.com/denizkarakass/kutuphane-sistemi.git </code>  
  <p> İstediğiniz dizinde terminal (cmd) ekranını açın. Aşağıdaki satırı çalıştırın.</p>
 <br>
-<code> npm i express mongoose body-parser express-session connect-mongo method-override </code>
+<code> npm i express mongoose body-parser express-session connect-mongo method-override bcrypt </code>
 <p> Terminal ekranından kaynak kütüphanelerini yükleyin. </p>
 <code> npm i nodemon </code>
 <p> İsterseniz geliştirme aşaması için Nodemon'u da dahil edebilirsiniz. </p>
 
+<br>
+<p>Şimdi uygulamayı lokalinizde çalıştırabilirsiniz</p>
+<code> npm start </code> veya <code> node app </code>
