@@ -9,3 +9,9 @@
 <h4> Nasıl Kullanırım ? </h4>
   <p> İstediğiniz dizinde terminal (cmd) ekranını açın. Aşağıdaki satırı çalıştırın.</p>
 <code>git clone https://github.com/denizkarakass/kutuphane-sistemi.git </code>  
+
+<br>
+<p> Terminal ekranından kaynak kütüphanelerini yükleyin. </p>
+<code> npm i express mongoose body-parser express-session connect-mongo method-override </code>
+<p> İsterseniz geliştirme aşaması için Nodemon'u da dahil edebilirsiniz. </p>
+<code> npm i nodemon </code>
