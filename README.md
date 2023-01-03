@@ -24,7 +24,7 @@
 <hr>Ödünç Alma<p><img src="/calismadan-fotolar/barrows.JPG" alt="Ödünç Alma"></p>
 <hr>Geri Verme<p> <img src="/calismadan-fotolar/returnBook.JPG" alt="Geri Verme"></p>
 <hr>Güncelleme Ve Silme<p><img src="/calismadan-fotolar/bookUpdateDelete.JPG" alt="Güncelleme Ve Silme"></p>
-<hr>Search Box<p> <img src="/calismadan-fotolar/SearchBox.JPG" alt="SearchBox"></p>
+<hr>Search Box<p> <img src="/calismadan-fotolar/searchBox..JPG" alt="SearchBox"></p>
 
 
 <h3> Çalışmadan Fotoğraflar</h3>
