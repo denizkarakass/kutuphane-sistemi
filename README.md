@@ -19,6 +19,15 @@
 <p>Şimdi uygulamayı lokalinizde çalıştırabilirsiniz</p>
 <code> npm start </code> veya <code> node app </code>
 
+<h3>Arayüzden Görüntüler</h3>
+<hr><p><img src="/calismadan-fotolar/createBook.jpg" alt="Kitap Oluşturma"></p>
+<hr><p><img src="/calismadan-fotolar/barrows.jpg" alt="Ödünç Alma"></p>
+<hr><p> <img src="/calismadan-fotolar/returnBook.jpg" alt="Geri Verme"></p>
+<hr><p><img src="/calismadan-fotolar/bookUpdateDelete.jpg" alt="Güncelleme Ve Silme"></p>
+<hr><p><img src="/calismadan-fotolar/bookUpdateDelete.jpg" alt="Güncelleme Ve Silme"></p>
+<hr><p> <img src="/calismadan-fotolar/SearchBox.jpg" alt="SearchBox"></p>
+
+
 <h3> Çalışmadan Fotoğraflar</h3>
 <p>Json Çıktı Alma<img src="/calismadan-fotolar/form-kitap-create-json.png" alt="Json Çalışma"> </p><hr>
 <p>Postman İle Front-end Yapılmadan Önce Yaptığım İsteklerden bir görüntü <img src="/calismadan-fotolar/postman.png" alt="Postman" </p>
