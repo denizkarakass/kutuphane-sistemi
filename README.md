@@ -20,12 +20,11 @@
 <code> npm start </code> veya <code> node app </code>
 
 <h3>Arayüzden Görüntüler</h3>
-<hr><p><img src="/calismadan-fotolar/createBook.jpg" alt="Kitap Oluşturma"></p>
-<hr><p><img src="/calismadan-fotolar/barrows.jpg" alt="Ödünç Alma"></p>
-<hr><p> <img src="/calismadan-fotolar/returnBook.jpg" alt="Geri Verme"></p>
-<hr><p><img src="/calismadan-fotolar/bookUpdateDelete.jpg" alt="Güncelleme Ve Silme"></p>
-<hr><p><img src="/calismadan-fotolar/bookUpdateDelete.jpg" alt="Güncelleme Ve Silme"></p>
-<hr><p> <img src="/calismadan-fotolar/SearchBox.jpg" alt="SearchBox"></p>
+<hr>Kitap Oluşturma<p><img src="/calismadan-fotolar/createBook.JPG" alt="Kitap Oluşturma"></p>
+<hr>Ödünç Alma<p><img src="/calismadan-fotolar/barrows.JPG" alt="Ödünç Alma"></p>
+<hr>Geri Verme<p> <img src="/calismadan-fotolar/returnBook.JPG" alt="Geri Verme"></p>
+<hr>Güncelleme Ve Silme<p><img src="/calismadan-fotolar/bookUpdateDelete.JPG" alt="Güncelleme Ve Silme"></p>
+<hr>Search Box<p> <img src="/calismadan-fotolar/SearchBox.JPG" alt="SearchBox"></p>
 
 
 <h3> Çalışmadan Fotoğraflar</h3>
