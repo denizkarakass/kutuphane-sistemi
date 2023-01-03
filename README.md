@@ -18,3 +18,9 @@
 <br>
 <p>Şimdi uygulamayı lokalinizde çalıştırabilirsiniz</p>
 <code> npm start </code> veya <code> node app </code>
+
+<h3> Çalışmadan Fotoğraflar</h3>
+<p>Json Çıktı Alma<img src="/calismadan-fotolar/form-kitap-create-json.png" alt="Json Çalışma"> </p><hr>
+<p>Postman İle Front-end Yapılmadan Önce Yaptığım İsteklerden bir görüntü <img src="/calismadan-fotolar/postman.png" alt="Postman" </p>
+<hr><p>Bcrypt paketi ile şifrelediğim kullanıcı bilgisinden bir görüntü <img src="/calismadan-fotolar/şifrelenmiş-kullanıcı-bilgisi-json.png" alt="Şifreleme API"></p>
+<hr><p>MongoDb collections lardan bir görüntü <img src="/calismadan-fotolar/mongodb-collections.png" alt="MongoDB veritabanı"></p>
