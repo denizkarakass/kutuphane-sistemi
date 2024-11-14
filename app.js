@@ -14,7 +14,7 @@ const app = express();
 
 /* Veritabanı şifresi ve kullanıcı adı açık olarak bırakılmıştır suistimal etmeyelim lütfen. :) */
 //CONNECT MONGODB
-mongoose.connect('mongodb+srv://denizkarakas:727302dk@cluster0.nhtzir1.mongodb.net/?retryWrites=true&w=majority').then(()=> {console.log('Veritabanı bağlandı')});
+mongoose.connect('mongodb+srv://admin:1234@cluster0.9md35.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0').then(()=> {console.log('Veritabanı bağlandı')});
 
 //TEMPLATE ENGİNE
 app.set("view engine","ejs");
@@ -32,7 +32,7 @@ app.use(session({
     resave: false,
     saveUninitialized: true,
     //cookie: { secure: true }
-    store: MongoStore.create({ mongoUrl: 'mongodb+srv://denizkarakas:727302dk@cluster0.nhtzir1.mongodb.net/?retryWrites=true&w=majority' }),
+    store: MongoStore.create({ mongoUrl: 'mongodb+srv://admin:1234@cluster0.9md35.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0' }),
   }))
 app.use(
     methodOverride('_method', {
