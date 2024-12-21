@@ -98,6 +98,7 @@
               <p><%= books[i].desciription %></p>
             </div>
             <div class="course-rating">Yazar: <%= books[i].yazar %></div>
+            <% if(user.role == 'admin'){ %>
             <button
               class="btn btn-lg btn-warning text-white"
               data-toggle="modal"
@@ -111,6 +112,7 @@
               class="btn btn-lg btn-danger text-white"
               ><span> Book Delete</span></a
             >
+            <% } %>
           </div>
           <div class="course-meta-bot">
             <ul>
